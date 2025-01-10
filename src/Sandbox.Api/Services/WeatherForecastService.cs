@@ -1,7 +1,9 @@
 
-internal class WeatherForecastService {
+namespace Sandbox.Api.Services;
 
-    public static WeatherForecast[] GetForeCast()
+internal static class WeatherForecastService {
+
+    public static Task<WeatherForecast[]> GetForeCast()
     {
         var summaries = new[]
         {
@@ -16,7 +18,8 @@ internal class WeatherForecastService {
                 summaries[Random.Shared.Next(summaries.Length)]
             ))
             .ToArray();
-        return forecast;
+            
+        return Task.FromResult(forecast);
     }
 
 }
