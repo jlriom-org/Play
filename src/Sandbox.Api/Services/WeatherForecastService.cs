@@ -1,7 +1,7 @@
 
 namespace Sandbox.Api.Services;
 
-internal static class WeatherForecastService {
+public static class WeatherForecastService {
 
     public static Task<WeatherForecast[]> GetForeCast()
     {
@@ -18,7 +18,7 @@ internal static class WeatherForecastService {
                 summaries[Random.Shared.Next(summaries.Length)]
             ))
             .ToArray();
-            
+
         return Task.FromResult(forecast);
     }
 
@@ -26,7 +26,7 @@ internal static class WeatherForecastService {
 
 
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+public record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
